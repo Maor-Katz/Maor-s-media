@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://maor1234:maor1234@devconnector-ba7wt.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "blah",
+  "githubClientId": "534e5dc4bf138114fedf",
+  "githubSecret": "9951d10a88f841bac3c2e18f0f32a156c3517ffb"
+}
