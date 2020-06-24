@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {login} from '../../actions/auth'
@@ -53,4 +53,4 @@ Login.propTypes = {
     isAuthenticated: PropTypes.bool
 };
 
-export default connect(mapStateToProps, {login})(Login)
+export default connect(mapStateToProps, {login})(Login);

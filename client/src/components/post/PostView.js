@@ -28,7 +28,6 @@ const PostView = props => {
                 ))}
             </div>
         </div>}
-
         </div>
     );
 };

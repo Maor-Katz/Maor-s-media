@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import {Link, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {setAlert} from '../../actions/alert'
-import {register} from '../../actions/auth'
+import {setAlert} from '../../actions/alert';
+import {register} from '../../actions/auth';
 import PropTypes from 'prop-types';
 
 const Register = (props) => {
@@ -10,8 +10,8 @@ const Register = (props) => {
     const registerUser = async (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
-            console.log('passwords do not match')
-            props.setAlert('passwords do not match', 'danger', 5000)
+            console.log('passwords do not match');
+            props.setAlert('passwords do not match', 'danger', 5000);
         } else {
             props.register({name, email, password});
         }

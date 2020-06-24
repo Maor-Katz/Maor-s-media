@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {setAlert} from './alert'
+import {setAlert} from './alert';
 import {
     GET_PROFILE,
     PROFILE_ERROR,
@@ -7,7 +7,7 @@ import {
     GET_REPOS,
     UPDATE_PROFILE,
     CLEAR_PROFILE, DELETE_ACCOUNT, SET_REPOS_NULL, ERASE_LOADING_PROFILE
-} from './types'
+} from './types';
 
 export const getCurrentProfile = () => async dispatch => {
     try {
@@ -56,8 +56,8 @@ export const getProfileById = (id, history) => async dispatch => {
         })
     } catch (e) {
         if (e.response.data.msg === 'profile not found') {
-            history.push('/posts')
-            dispatch(setAlert('Profile Not Exists', 'danger'));
+            history.push('/posts');
+            dispatch(setAlert('Profile Not Exists', 'danger'))
         }
         dispatch({
             type: PROFILE_ERROR,
@@ -95,7 +95,7 @@ export const addOrUpdateProfile = (formData, history, edit = false) => async dis
             headers: {
                 'Content-Type': 'application/json'
             }
-        }
+        };
         const res = await axios.post('profile', formData, config);
 
         dispatch({
@@ -128,7 +128,7 @@ export const addExperienceProfile = (formData, history) => async dispatch => {
             headers: {
                 'Content-Type': 'application/json'
             }
-        }
+        };
         const res = await axios.put('profile/experience', formData, config);
 
         dispatch({
@@ -159,7 +159,7 @@ export const addEducation = (formData, history) => async dispatch => {
             headers: {
                 'Content-Type': 'application/json'
             }
-        }
+        };
         const res = await axios.put('profile/education', formData, config);
 
         dispatch({
@@ -169,9 +169,7 @@ export const addEducation = (formData, history) => async dispatch => {
 //lets generate new alert
         dispatch(setAlert('Added Experience', 'success'));
         //after added experience we want to redirect to dashboard
-
         history.push('/dashboard');
-
     } catch (e) {
 //case we have multiple errors and we want to generate multiple alerts:
         const errors = e.response.data.errors;

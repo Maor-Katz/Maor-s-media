@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
-import {deleteExperience} from '../../actions/profile'
+import {deleteExperience} from '../../actions/profile';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 

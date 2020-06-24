@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import {Link} from "react-router-dom";
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types';
-import {logout} from '../../actions/auth'
+import {logout} from '../../actions/auth';
 
 const Navbar = (props) => {
-    const {isAuthenticated} = props.auth
+    const {isAuthenticated} = props.auth;
 
     const guestLinks = (
         <ul>
@@ -65,8 +65,8 @@ Navbar.propTypes = {
 };
 
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps, {logout})(Navbar)
+export default connect(mapStateToProps, {logout})(Navbar);

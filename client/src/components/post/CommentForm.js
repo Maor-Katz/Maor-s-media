@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {addComment} from "../../actions/post";
 
 const CommentForm = props => {
-    const {addComment, postId} = props
+    const {addComment, postId} = props;
     const [text, setText] = useState('');
     const createComment = () => {
         addComment(postId, {text});

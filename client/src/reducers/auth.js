@@ -7,17 +7,17 @@ import {
     LOGIN_SUCCESS,
     LOGOUT,
     DELETE_ACCOUNT, ERASE_LOADING_AUTH
-} from '../actions/types'
+} from '../actions/types';
 
 const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     loading: true,
     user: null
-}
+};
 
 export default function (state = initialState, action) {
-    const {payload, type} = action
+    const {payload, type} = action;
     switch (type) {
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:

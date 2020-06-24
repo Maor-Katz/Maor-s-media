@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import {Link, Redirect} from "react-router-dom";
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Loader from "../Loader";
 
@@ -41,4 +41,4 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps)(Landing)
+export default connect(mapStateToProps)(Landing);

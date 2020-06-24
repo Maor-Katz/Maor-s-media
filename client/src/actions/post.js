@@ -1,5 +1,5 @@
-import axios from 'axios'
-import {setAlert} from './alert'
+import axios from 'axios';
+import {setAlert} from './alert';
 import {
     ADD_COMMENT,
     ADD_POST,
@@ -14,7 +14,7 @@ import {
 //get posts
 export const getPosts = () => async dispatch => {
     try {
-        const res = await axios.get('/posts')
+        const res = await axios.get('/posts');
         dispatch({
             type: GET_POSTS,
             payload: res.data
@@ -30,7 +30,7 @@ export const getPosts = () => async dispatch => {
 //get specific post
 export const getPost = (postId) => async dispatch => {
     try {
-        const res = await axios.get(`/posts/${postId}`)
+        const res = await axios.get(`/posts/${postId}`);
         dispatch({
             type: GET_POST,
             payload: res.data
@@ -47,7 +47,7 @@ export const getPost = (postId) => async dispatch => {
 
 export const addLike = (postId) => async dispatch => {
     try {
-        const res = await axios.put(`/posts/like/${postId}`)
+        const res = await axios.put(`/posts/like/${postId}`);
         dispatch({
             type: UPDATE_LIKES,
             payload: {likes: res.data, id: postId}
@@ -119,7 +119,7 @@ export const addComment = (postId, formData) => async dispatch => {
         headers: {
             'Content-Type': 'application/json'
         }
-    }
+    };
     try {
         const res = await axios.put(`/posts/comment/${postId}`, formData, config);
         dispatch({

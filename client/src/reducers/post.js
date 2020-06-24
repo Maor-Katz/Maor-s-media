@@ -7,14 +7,14 @@ import {
     GET_POSTS,
     POST_ERROR, REMOVE_COMMENT,
     UPDATE_LIKES
-} from '../actions/types'
+} from '../actions/types';
 
 const initialState = {
     posts: [],
     post: null,
     loading: true,
     error: {}
-}
+};
 
 export default function (state = initialState, action) {
     switch (action.type) {

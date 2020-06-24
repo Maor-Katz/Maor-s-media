@@ -9,4 +9,4 @@ const setAuthToken = token => {
     }
 }
 
-export default setAuthToken
+export default setAuthToken;

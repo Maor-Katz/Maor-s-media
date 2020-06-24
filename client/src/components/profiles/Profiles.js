@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getAllProfiles} from '../../actions/profile'
+import {getAllProfiles} from '../../actions/profile';
 import Loader from "../Loader";
 import ProfileItem from "./ProfileItem";
 

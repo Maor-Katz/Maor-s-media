@@ -1,19 +1,19 @@
 import React, {useEffect} from 'react';
-import {connect} from 'react-redux'
-import {getProfileById} from '../../actions/profile'
+import {connect} from 'react-redux';
+import {getProfileById} from '../../actions/profile';
 import PropTypes from 'prop-types';
 import Loader from "../Loader";
 import {Link, withRouter} from "react-router-dom";
 import {CLEAR_PROFILE} from "../../actions/types";
 import store from "../../store";
-import ProfileTop from './ProfileTop'
-import ProfileAbout from './ProfileAbout'
-import ProfileExperience from './ProfileExperience'
-import ProfileEducation from './ProfileEducation'
-import ProfileGithub from './ProfileGithub'
+import ProfileTop from './ProfileTop';
+import ProfileAbout from './ProfileAbout';
+import ProfileExperience from './ProfileExperience';
+import ProfileEducation from './ProfileEducation';
+import ProfileGithub from './ProfileGithub';
 
 const Profile = (props) => {
-    const {getProfileById, profile, auth: {loading, user, isAuthenticated}} = props
+    const {getProfileById, profile, auth: {loading, user, isAuthenticated}} = props;
 
     useEffect(() => {
         getProfileById(props.match.params.id, props.history);

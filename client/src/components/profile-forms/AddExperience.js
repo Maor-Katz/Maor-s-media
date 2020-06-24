@@ -96,4 +96,4 @@ AddExperience.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ({})
 //in order to get props.history we need to use withRouter from react router
-export default connect(mapStateToProps, {addExperienceProfile})(withRouter(AddExperience))
+export default connect(mapStateToProps, {addExperienceProfile})(withRouter(AddExperience));

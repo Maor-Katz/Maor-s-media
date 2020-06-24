@@ -181,4 +181,4 @@ const mapStateToProps = (state) => ({
     profile: state.profile
 })
 //in order to get props.history we need to use withRouter from react router
-export default connect(mapStateToProps, {addOrUpdateProfile, getCurrentProfile})(withRouter(EditProfile))
+export default connect(mapStateToProps, {addOrUpdateProfile, getCurrentProfile})(withRouter(EditProfile));

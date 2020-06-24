@@ -20,8 +20,8 @@ const CreateProfile = (props) => {
         youtube: '',
         instagram: '',
     })
-    const [socialInputs, setSocialInputs] = useState(false)
-    const {company, website, location, status, skills, githubusername, bio, twitter, facebook, linkedin, youtube, instagram} = formData
+    const [socialInputs, setSocialInputs] = useState(false);
+    const {company, website, location, status, skills, githubusername, bio, twitter, facebook, linkedin, youtube, instagram} = formData;
 
     const updateForm = e => {
         setFormData({...formData, [e.target.name]: e.target.value})
@@ -157,4 +157,4 @@ CreateProfile.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ({})
 //in order to get props.history we need to use withRouter from react router
-export default connect(mapStateToProps, {addOrUpdateProfile})(withRouter(CreateProfile))
+export default connect(mapStateToProps, {addOrUpdateProfile})(withRouter(CreateProfile));

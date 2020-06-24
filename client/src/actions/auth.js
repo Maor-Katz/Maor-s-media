@@ -8,8 +8,8 @@ import {
     LOGIN_FAIL,
     LOGOUT,
     CLEAR_PROFILE
-} from './types'
-import {setAlert} from './alert'
+} from './types';
+import {setAlert} from './alert';
 import setAuthToken from "../utils/setAuthToken";
 
 //load user
@@ -28,7 +28,6 @@ export const loadUser = () => async dispatch => {
             type: AUTH_ERROR
         })
     }
-
 }
 
 export const register = ({name, email, password}) => async dispatch => {
@@ -38,7 +37,7 @@ export const register = ({name, email, password}) => async dispatch => {
         }
     }
 
-    const body = JSON.stringify({name, email, password})
+    const body = JSON.stringify({name, email, password});
 
     try {
         const res = await axios.post('users/register', body, config);
@@ -67,7 +66,7 @@ export const login = (email, password) => async dispatch => {
         }
     }
 
-    const body = JSON.stringify({email, password})
+    const body = JSON.stringify({email, password});
 
     try {
         const res = await axios.post('auth/login', body, config);

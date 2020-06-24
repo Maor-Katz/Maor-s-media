@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getPosts} from '../../actions/post'
+import {getPosts} from '../../actions/post';
 import Loader from "../Loader";
 import PostItem from "./PostItem";
 import PostForm from "./PostForm";
 
 
 const Posts = props => {
-    const {post: {posts, loading}, getPosts} = props
+    const {post: {posts, loading}, getPosts} = props;
     useEffect(() => {
         getPosts();
     }, [getPosts])

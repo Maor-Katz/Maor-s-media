@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../../middlewares/auth')
-const User = require('../../models/User')
+const auth = require('../../middlewares/auth');
+const User = require('../../models/User');
 const config = require('config');
 const {check, validationResult} = require('express-validator');
 const jwt = require('jsonwebtoken');
@@ -26,8 +26,7 @@ router.post('/login', [
     check('email', 'please include valid email').isEmail(),
     check('password', 'password is require').exists()
 ], async (req, res) => {
-    const {email, password} = req.body
-
+    const {email, password} = req.body;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({
@@ -36,7 +35,7 @@ router.post('/login', [
     }
     try {
 //see if user exsits in our db
-        let user = await User.findOne({email})
+        let user = await User.findOne({email});
         if (!user) {
             return res.status(400).json({errors: [{msg: 'user not exists'}]})
         }
@@ -65,7 +64,6 @@ router.post('/login', [
     } catch (e) {
         res.status(500).send(e)
     }
-
 })
 
 module.exports = router;

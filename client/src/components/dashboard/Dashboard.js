@@ -1,13 +1,13 @@
-import React, {useEffect} from 'react'
-import {connect} from 'react-redux'
+import React, {useEffect} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {getCurrentProfile, deleteAccount} from '../../actions/profile'
-import {loadUser} from '../../actions/auth'
+import {getCurrentProfile, deleteAccount} from '../../actions/profile';
+import {loadUser} from '../../actions/auth';
 import Loader from "../Loader";
 import {Link} from "react-router-dom";
-import DashboardActions from './DashboardActions'
-import Experience from './Experience'
-import Education from './Education'
+import DashboardActions from './DashboardActions';
+import Experience from './Experience';
+import Education from './Education';
 
 const Dashboard = (props) => {
     const {user} = props.auth;
@@ -61,4 +61,4 @@ const mapStateToProps = (state, ownProps) => ({
     profile: state.profile
 })
 
-export default connect(mapStateToProps, {getCurrentProfile, loadUser, deleteAccount})(Dashboard)
+export default connect(mapStateToProps, {getCurrentProfile, loadUser, deleteAccount})(Dashboard);

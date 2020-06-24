@@ -2,7 +2,7 @@ import React from 'react';
 import Moment from "react-moment";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
-import {deleteEducation} from '../../actions/profile'
+import {deleteEducation} from '../../actions/profile';
 import PropTypes from "prop-types";
 
 const Education = (props) => {

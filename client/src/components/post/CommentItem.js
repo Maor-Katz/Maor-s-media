@@ -6,7 +6,7 @@ import {deleteComment} from "../../actions/post";
 import Moment from 'react-moment';
 
 const CommentItem = props => {
-    const {postId, comment: {_id, text, name, avatar, user, date}, auth, deleteComment} = props
+    const {postId, comment: {_id, text, name, avatar, user, date}, auth, deleteComment} = props;
     return (
         <div className='post bg-white p-1 my-1'>
             <div>

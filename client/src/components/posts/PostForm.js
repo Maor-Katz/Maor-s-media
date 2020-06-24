@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {addPost} from '../../actions/post'
+import {addPost} from '../../actions/post';
 
 const PostForm = props => {
     const [text, setText] = useState('');
-    const createPost = (e) => {
-        // e.preventDefault();
+    const createPost = () => {
         props.addPost({text});
         setText('')
     }

@@ -51,7 +51,7 @@ router.get('/', auth, async (req, res) => {
 // @access Private
 router.get('/:post_id', auth, async (req, res) => {
     try {
-        const specificPost = await Post.findById(req.params.post_id)
+        const specificPost = await Post.findById(req.params.post_id);
         if (!specificPost) {
             return res.status(404).json({msg: 'Post not found'})
         }
@@ -70,9 +70,9 @@ router.get('/:post_id', auth, async (req, res) => {
 // @access Private
 router.delete('/:post_id', auth, async (req, res) => {
     try {
-        const specificPost = await Post.findById(req.params.post_id)
+        const specificPost = await Post.findById(req.params.post_id);
         if (!specificPost) {
-            return res.status(404).json({msg: 'Post not found'})
+            return res.status(404).json({msg: 'Post not found'});
         }
 
         //check if this user is the owner of this post:
@@ -80,16 +80,15 @@ router.delete('/:post_id', auth, async (req, res) => {
             return res.status(401).json({msg: `User not authorized`})
         }
 
-        await Post.remove({_id: req.params.post_id}, {justOne: true})
+        await Post.remove({_id: req.params.post_id}, {justOne: true});
 
-
-        res.json({msg: 'post removed'})
+        res.json({msg: 'post removed'});
     } catch (err) {
         if (err.message.includes('Cast to ObjectId failed')) {
-            return res.status(400).json({msg: 'Post not found'})
+            return res.status(400).json({msg: 'Post not found'});
         }
         console.log(err);
-        res.status(500).send('Server Error')
+        res.status(500).send('Server Error');
     }
 })
 
@@ -98,7 +97,7 @@ router.delete('/:post_id', auth, async (req, res) => {
 // @access Private
 router.put('/like/:post_id', auth, async (req, res) => {
     try {
-        const specificPost = await Post.findById(req.params.post_id)
+        const specificPost = await Post.findById(req.params.post_id);
 //check if post exists
         if (!specificPost) {
             return res.json({msg: 'post not found'})
@@ -107,7 +106,7 @@ router.put('/like/:post_id', auth, async (req, res) => {
         const user = await User.findById(req.user.id);
 //check if post already liked by current user
         if (specificPost.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
-            return res.status(400).json({msg: 'This post already liked by this user'})
+            return res.status(400).json({msg: 'This post already liked by this user'});
         }
 
         specificPost.likes.unshift({
@@ -120,10 +119,10 @@ router.put('/like/:post_id', auth, async (req, res) => {
         res.json(specificPost.likes);
     } catch (err) {
         if (err.message.includes('Cast to ObjectId failed')) {
-            return res.status(400).json({msg: 'Post not found'})
+            return res.status(400).json({msg: 'Post not found'});
         }
         console.log(err);
-        res.status(500).send('Server Error')
+        res.status(500).send('Server Error');
     }
 })
 
@@ -132,10 +131,10 @@ router.put('/like/:post_id', auth, async (req, res) => {
 // @access Private
 router.put('/unlike/:post_id', auth, async (req, res) => {
     try {
-        const specificPost = await Post.findById(req.params.post_id)
+        const specificPost = await Post.findById(req.params.post_id);
 //check if post exists
         if (!specificPost) {
-            return res.json({msg: 'post not found'})
+            return res.json({msg: 'post not found'});
         }
 
         const user = await User.findById(req.user.id);
@@ -150,10 +149,10 @@ router.put('/unlike/:post_id', auth, async (req, res) => {
         res.json(specificPost.likes);
     } catch (err) {
         if (err.message.includes('Cast to ObjectId failed')) {
-            return res.status(400).json({msg: 'Post not found'})
+            return res.status(400).json({msg: 'Post not found'});
         }
         console.log(err);
-        res.status(500).send('Server Error')
+        res.status(500).send('Server Error');
     }
 })
 
@@ -164,10 +163,10 @@ router.put('/comment/:post_id', [auth,
     check('text', 'text field is required').not().isEmpty()
 ], async (req, res) => {
     try {
-        const specificPost = await Post.findById(req.params.post_id)
+        const specificPost = await Post.findById(req.params.post_id);
 //check if post exists
         if (!specificPost) {
-            return res.json({msg: 'post not found'})
+            return res.json({msg: 'post not found'});
         }
 
         const user = await User.findById(req.user.id);
@@ -183,10 +182,10 @@ router.put('/comment/:post_id', [auth,
         res.json(specificPost.comments);
     } catch (err) {
         if (err.message.includes('Cast to ObjectId failed')) {
-            return res.status(400).json({msg: 'Post not found'})
+            return res.status(400).json({msg: 'Post not found'});
         }
         console.log(err);
-        res.status(500).send('Server Error')
+        res.status(500).send('Server Error');
     }
 })
 
@@ -195,37 +194,37 @@ router.put('/comment/:post_id', [auth,
 // @access Private
 router.delete('/deletecomment/:post_id/:comment_id', auth, async (req, res) => {
     try {
-        const specificPost = await Post.findById(req.params.post_id)
+        const specificPost = await Post.findById(req.params.post_id);
 //check if post exists
         if (!specificPost) {
-            return res.json({msg: 'post not found'})
+            return res.json({msg: 'post not found'});
         }
 //check if comment exists
-        let specificComment = await specificPost.comments.filter(comment => comment.id.toString() === req.params.comment_id)
+        let specificComment = await specificPost.comments.filter(comment => comment.id.toString() === req.params.comment_id);
 //specificComment return array
         if (specificComment.length > 0) {
-            specificComment = specificComment[0]
+            specificComment = specificComment[0];
         }
         if (!specificComment) {
-            return res.json({msg: 'comment not found'})
+            return res.json({msg: 'comment not found'});
         }
 
 //check if user is trying to delete his comment and not other comments
         if (req.user.id !== specificComment.user.toString()) {
-            return res.json({msg: 'This user can not delete this post'})
+            return res.json({msg: 'This user can not delete this post'});
         }
 //update comments array at post's comments array
-        let newCommentsArray = specificPost.comments.filter(comment => comment._id.toString() !== req.params.comment_id)
+        let newCommentsArray = specificPost.comments.filter(comment => comment._id.toString() !== req.params.comment_id);
         specificPost.comments = newCommentsArray;
 
         await Post.findOneAndUpdate({_id: req.params.post_id}, {$set: specificPost});
         res.json(specificPost.comments);
     } catch (err) {
         if (err.message.includes('Cast to ObjectId failed')) {
-            return res.status(400).json({msg: 'Post not found'})
+            return res.status(400).json({msg: 'Post not found'});
         }
         console.log(err);
-        res.status(500).send('Server Error')
+        res.status(500).send('Server Error');
     }
 })
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 import Moment from 'react-moment';
 import {connect} from 'react-redux';
-import {addLike, removeLike, deletePost} from '../../actions/post'
+import {addLike, removeLike, deletePost} from '../../actions/post';
 
 const PostItem = props => {
     const {post: {_id, text, name, avatar, user, likes, comments, date}, auth, addLike, removeLike, showActions} = props;
